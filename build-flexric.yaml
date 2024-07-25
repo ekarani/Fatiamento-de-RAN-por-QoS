@@ -1,0 +1,60 @@
+- name: Clone and Build FlexRIC
+  hosts: gnb
+  become: yes
+  gather_facts: yes
+  tasks:
+    - name: Ensure Git is installed
+      ansible.builtin.package:
+        name: git
+        state: present
+
+    - name: Check if Swig is installed on home
+      ansible.builtin.stat:
+        path: '/home/{{ ansible_user }}/swig'
+      register: swig_dir
+
+    - name: Clone Swig Git repository
+      ansible.builtin.git:
+        repo: 'https://github.com/swig/swig.git'
+        dest: '/home/{{ ansible_user }}/swig'
+        version: 'release-4.1'
+      when: not swig_dir.stat.exists
+
+    - name: Build Swig
+      shell: | 
+        ./autogen.sh
+        ./configure --prefix=/usr/
+        make -j8
+        make install
+      args:
+        chdir: '/home/{{ ansible_user }}/swig/'
+
+
+    - name: Check if FlexRIC directory exists
+      ansible.builtin.stat:
+        path: '/home/{{ ansible_user }}/flexric'
+      register: flexric_dir
+
+    - name: Clone FlexRIC Git repository
+      ansible.builtin.git:
+        repo: 'https://gitlab.eurecom.fr/mosaic5g/flexric'
+        dest: '/home/{{ ansible_user }}/flexric'
+        version: 'f1c08ed2b9b1eceeda7941dd7bf435db0168dd56'
+      when: not flexric_dir.stat.exists
+
+    - name: Copy xapp_kpm_moni.c file
+      copy:
+        src: ./xapp_kpm_moni.c
+        dest: "/home/{{ ansible_user }}/flexric/examples/xApp/c/monitor/"
+
+    - name: Check if build directory exists
+      ansible.builtin.stat:
+        path: /home/{{ ansible_user }}/flexric/build
+      register: build_dir
+
+    - name: Build FlexRIC
+      shell: mkdir build && cd build && cmake .. && make -j8
+      args:
+        chdir: /home/{{ ansible_user }}/flexric
+      when: not build_dir.stat.exists
+

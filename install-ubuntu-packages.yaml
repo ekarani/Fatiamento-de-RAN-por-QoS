@@ -1,0 +1,38 @@
+---
+- name: Install all required packages
+  hosts: ran
+  become: yes
+  gather_facts: yes
+  tasks:
+    - name: Update package list
+      apt:
+        update_cache: yes
+        cache_valid_time: 86400
+
+    - name: Install packages
+      apt:
+        name:
+          - build-essential 
+          - gcc-10 
+          - g++-10
+          - ca-certificates 
+          - curl 
+          - gnupg 
+          - lsb-release
+          - automake 
+          - make
+          - libpcre2-dev 
+          - byacc 
+          - cmake 
+          - python3-dev 
+          - libsctp-dev 
+          - bison
+          - cmake-curses-gui 
+          - python3-pip
+        state: present
+
+    - name: Configure gcc-10 and g++-10
+      shell: >
+        update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-10 10 &&
+        update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-10 10
+

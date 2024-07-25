@@ -1,0 +1,12 @@
+[core]
+localhost ansible_ssh_private_key_file=~/spire-key
+
+[gnb]
+localhost ansible_ssh_private_key_file=~/spire-key
+
+[ue]
+localhost ansible_ssh_private_key_file=~/spire-key
+
+[ran:children]
+gnb
+ue

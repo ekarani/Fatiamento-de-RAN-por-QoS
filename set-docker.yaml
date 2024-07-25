@@ -1,0 +1,70 @@
+---
+- name: Configure Docker on Ubuntu
+  hosts: core
+  become: yes
+
+  tasks:
+    - name: Add Docker GPG apt Key
+      apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+
+    - name: Add Docker Repository
+      apt_repository:
+        repo: deb https://download.docker.com/linux/ubuntu focal stable
+        state: present
+
+    - name: Update apt and install docker-ce
+      apt:
+        name:
+          - docker-ce
+          - docker
+          - docker-ce-cli
+          - containerd.io
+          - docker-compose-plugin
+        state: latest
+        update_cache: true
+
+    - name: Install Docker Module for Python
+      pip:
+        name: docker
+
+    - name: Check if docker-compose is installed
+      command: docker-compose --version
+      register: docker_compose_version
+      ignore_errors: yes
+
+    - name: Install docker-compose
+      shell: >
+        curl -L https://github.com/docker/compose/releases/download/1.29.2/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose && chmod +x /usr/local/bin/docker-compose
+      when: docker_compose_version.failed
+
+
+- name: Pull and tag Docker images
+  hosts: all
+  become: yes
+  tasks:
+    - name: Define a lista de imagens Docker
+      set_fact:
+        docker_images:
+          - { name: "oaisoftwarealliance/oai-amf", version: "v1.5.0" }
+          - { name: "oaisoftwarealliance/oai-nrf", version: "v1.5.0" }
+          - { name: "oaisoftwarealliance/oai-smf", version: "v1.5.0" }
+          - { name: "oaisoftwarealliance/oai-udr", version: "v1.5.0" }
+          - { name: "oaisoftwarealliance/oai-udm", version: "v1.5.0" }
+          - { name: "oaisoftwarealliance/oai-ausf", version: "v1.5.0" }
+          - { name: "oaisoftwarealliance/oai-spgwu-tiny", version: "v1.5.0" }
+          - { name: "oaisoftwarealliance/trf-gen-cn5g", version: "latest" }
+
+    - name: Pull Docker images
+      community.docker.docker_image:
+        name: "{{ item.name }}:{{ item.version }}"
+        source: pull
+      loop: "{{ docker_images }}"
+
+    - name: Tag Docker images
+      ansible.builtin.command:
+        cmd: "docker image tag {{ item.name }}:{{ item.version }} {{ item.name | regex_replace('^.*/', '') }}:{{ item.version }}"
+      loop: "{{ docker_images }}"
+
+

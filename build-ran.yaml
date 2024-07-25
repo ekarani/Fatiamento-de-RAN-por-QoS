@@ -1,0 +1,55 @@
+- name: Clone and Build OAI RAN
+  hosts: ran
+  become: yes
+  gather_facts: yes
+  tasks:
+    - name: Ensure Git is installed
+      ansible.builtin.package:
+        name: git
+        state: present
+
+    - name: Check if OAI directory exists
+      ansible.builtin.stat:
+        path: '/home/{{ ansible_user }}/oai'
+      register: oai_dir
+
+    - name: Clone OpenAirInterface5G Git repository
+      ansible.builtin.git:
+        repo: 'https://gitlab.eurecom.fr/oai/openairinterface5g'
+        dest: '/home/{{ ansible_user }}/oai'
+      when: not oai_dir.stat.exists
+
+    - name: Replace line 170 in ran_func_kpm.c using sed
+      ansible.builtin.shell: |
+        sed -i '170s/.*/ *sd = calloc(1, sizeof(uint32_t));/' /home/{{ ansible_user }}/oai/openair2/E2AP/RAN_FUNCTION/O-RAN/ran_func_kpm.c
+
+    - name: Print log file location
+      ansible.builtin.debug:
+        msg: "The compilation logs can be found at /home/{{ ansible_user }}/oai/cmake_targets/log/all.txt"
+
+    - name: Check if nr-softmodem exists
+      ansible.builtin.stat:
+        path: /home/{{ ansible_user }}/oai/cmake_targets/ran_build/build/nr-softmodem
+      register: nr_softmodem
+
+    - name: Check if nr-uesoftmodem exists
+      ansible.builtin.stat:
+        path: /home/{{ ansible_user }}/oai/cmake_targets/ran_build/build/nr-uesoftmodem
+      register: nr_uesoftmodem
+
+    - name: Build OAI RAN
+      shell: ./build_oai -I -w SIMU --gNB --nrUE --build-e2 --ninja
+      args:
+        chdir: /home/{{ ansible_user }}/oai/cmake_targets/
+      when: not nr_softmodem.stat.exists and not nr_uesoftmodem.stat.exists
+
+    - name: Copy configuration files
+      copy: 
+        src: './{{ item }}'
+        dest: '/home/{{ ansible_user }}/oai/cmake_targets/ran_build/build/'
+      loop:
+        - gnb.conf
+        - ue.conf
+
+
+        
