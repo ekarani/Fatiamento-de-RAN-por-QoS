@@ -5,7 +5,7 @@
   tasks:
     - name: Copy docker-compose files
       ansible.builtin.synchronize:
-        src: ./cn5g-docker/
+        src: ../../docker/cn5g-docker/
         dest: /home/{{ ansible_user }}/cn5g-docker/
         owner: yes
         group: yes

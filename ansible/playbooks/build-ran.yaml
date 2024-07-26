@@ -45,8 +45,8 @@
 
     - name: Copy configuration files
       copy: 
-        src: './{{ item }}'
-        dest: '/home/{{ ansible_user }}/oai/cmake_targets/ran_build/build/'
+        src: ../../configs/{{ item }}
+        dest: /home/{{ ansible_user }}/oai/cmake_targets/ran_build/build/
       loop:
         - gnb.conf
         - ue.conf
