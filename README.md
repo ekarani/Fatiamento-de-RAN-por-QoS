@@ -80,4 +80,16 @@ cd oai/cmake_targets/ran_build/build/
 sudo ./nr-uesoftmodem -r 106 --numerology 1 --band 78 -C 3619200000 --rfsim --sa --nokrnmod --rfsimulator.serveraddr 127.0.0.1 -O ue.conf
 ```
 
+# Descrição do Experimento que originou o diretório "dados"
+1. Geração de carga para o UE 2 sem executar script de monitoramento e fatiamento
+2. Geração de carga para os dois UEs ao mesmo tempo sem o script de monitoramento e fatiamento
+3. Execução do script python `slicing.py`, que realiza monitoramento com o xApp `xapp_kpm_moni` em loop e gatilha o fatiamento quando a UE 1 apresenta latência de downlink maior que 0.5 ms
+
+Os estresses na rede com iperf3 são feitos da seguinte forma:
+1. Executar iperf com `-t 60` para UE 1, sendo somente ele por 10 segundos
+2. Executar iperf com `-t 60` para UE 2
+O comportamento da taxa de transferência é observado durante esse tempo.
+
+Ainda é realizado iperf com cada UE sozinho após o fatiamento.
+
 
