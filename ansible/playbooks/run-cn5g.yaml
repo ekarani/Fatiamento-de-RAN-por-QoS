@@ -25,3 +25,11 @@
     - name: Debug output of running Docker containers
       ansible.builtin.debug:
         msg: "{{ docker_ps_output.stdout }}"
+
+    - name: Run apt update and install packages on SPGWU container
+      command: docker exec oai-spgwu bash -c "apt update && apt-get install python3-pip -y && apt install -y libnfnetlink-dev libnetfilter-queue-dev"
+
+    - name: Download pip packages on SPGWU container
+      command: docker exec oai-spgwu bash -c "pip3 install scapy NetfilterQueue"
+
+    

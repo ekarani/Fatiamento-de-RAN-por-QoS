@@ -19,6 +19,7 @@ become_user = root
 become_ask_pass = false
 ```
 * `./ansible/inventory/hosts`
+
 Atualizar os IPs dos hosts e caminho das chaves ssh. (Recomendável que gNB e CORE estejam no mesmo host).
 
 ```
@@ -59,4 +60,24 @@ ansible-playbook ansible/playbooks/build-ran.yaml
 ```
 ansible-playbook ansible/playbooks/build-flexric.yaml
 ```
+
+## Executando
+1. Executando FlexRIC
+```
+cd flexric/build/examples/ric/
+./nearRT-RIC
+```
+
+2. Executando gNB
+```
+cd oai/cmake_targets/ran_build/build/
+sudo ./nr-softmodem --rfsim --sa -O ./gnb.conf --continuous-tx --gNBs.[0].min_rxtxtime 6
+```
+
+3. Executando UE
+```
+cd oai/cmake_targets/ran_build/build/
+sudo ./nr-uesoftmodem -r 106 --numerology 1 --band 78 -C 3619200000 --rfsim --sa --nokrnmod --rfsimulator.serveraddr 127.0.0.1 -O ue.conf
+```
+
 

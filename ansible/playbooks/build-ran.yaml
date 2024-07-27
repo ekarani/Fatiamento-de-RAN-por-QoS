@@ -17,6 +17,7 @@
       ansible.builtin.git:
         repo: 'https://gitlab.eurecom.fr/oai/openairinterface5g'
         dest: '/home/{{ ansible_user }}/oai'
+        version: 9fab2124417cfe67fe09b1eab5e377e26c5cf3a5
       when: not oai_dir.stat.exists
 
     - name: Replace line 170 in ran_func_kpm.c using sed

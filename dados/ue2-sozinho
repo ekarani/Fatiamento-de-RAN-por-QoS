@@ -1,0 +1,233 @@
+[UTIL]: Setting the config -c file to /usr/local/etc/flexric/flexric.conf
+[UTIL]: Setting path -p for the shared libraries to /usr/local/lib/flexric/
+[xAapp]: Initializing ... 
+[xApp]: nearRT-RIC IP Address = 127.0.0.1, PORT = 36422
+[E2 AGENT]: Opening plugin from path = /usr/local/lib/flexric/librlc_sm.so 
+[E2 AGENT]: Opening plugin from path = /usr/local/lib/flexric/libtc_sm.so 
+[E2 AGENT]: Opening plugin from path = /usr/local/lib/flexric/libslice_sm.so 
+[E2 AGENT]: Opening plugin from path = /usr/local/lib/flexric/libkpm_sm.so 
+[E2 AGENT]: Opening plugin from path = /usr/local/lib/flexric/libpdcp_sm.so 
+[E2 AGENT]: Opening plugin from path = /usr/local/lib/flexric/libmac_sm.so 
+[E2 AGENT]: Opening plugin from path = /usr/local/lib/flexric/libgtp_sm.so 
+[E2 AGENT]: Opening plugin from path = /usr/local/lib/flexric/librc_sm.so 
+[NEAR-RIC]: Loading SM ID = 143 with def = RLC_STATS_V0 
+[NEAR-RIC]: Loading SM ID = 146 with def = TC_STATS_V0 
+[NEAR-RIC]: Loading SM ID = 145 with def = SLICE_STATS_V0 
+[NEAR-RIC]: Loading SM ID = 2 with def = ORAN-E2SM-KPM 
+[NEAR-RIC]: Loading SM ID = 144 with def = PDCP_STATS_V0 
+[NEAR-RIC]: Loading SM ID = 142 with def = MAC_STATS_V0 
+[NEAR-RIC]: Loading SM ID = 148 with def = GTP_STATS_V0 
+[NEAR-RIC]: Loading SM ID = 3 with def = ORAN-E2SM-RC 
+[xApp]: DB filename = /tmp/xapp_db_1722040827983463 
+ [xApp]: E42 SETUP-REQUEST tx
+[xApp]: E42 SETUP-RESPONSE rx 
+[xApp]: xApp ID = 7 
+[xApp]: Registered E2 Nodes = 1 
+Connected E2 nodes = 1
+[xApp]: E42 RIC SUBSCRIPTION REQUEST tx RAN_FUNC_ID 2 RIC_REQ_ID 1 
+[xApp]: SUBSCRIPTION RESPONSE rx
+[xApp]: Successfully subscribed to RAN_FUNC_ID 2 
+
+      1 KPM ind_msg latency = 1722039109144134 [μs]
+UE ID type = gNB, amf_ue_ngap_id = 1
+ran_ue_id = 1
+DRB.PdcpSduVolumeDL = 0 [kb]
+DRB.PdcpSduVolumeUL = 2 [kb]
+DRB.RlcSduDelayDl = 0.00 [μs]
+DRB.UEThpDl = 0.14 [kbps]
+DRB.UEThpUl = 2.63 [kbps]
+RRU.PrbTotDl = 603 [PRBs]
+RRU.PrbTotUl = 145845 [PRBs]
+UE ID type = gNB, amf_ue_ngap_id = 2
+ran_ue_id = 2
+DRB.PdcpSduVolumeDL = 324139 [kb]
+DRB.PdcpSduVolumeUL = 1894 [kb]
+DRB.RlcSduDelayDl = 0.00 [μs]
+DRB.UEThpDl = 322841.83 [kbps]
+DRB.UEThpUl = 2159.42 [kbps]
+RRU.PrbTotDl = 550852 [PRBs]
+RRU.PrbTotUl = 138237 [PRBs]
+
+      2 KPM ind_msg latency = 1722039110139223 [μs]
+UE ID type = gNB, amf_ue_ngap_id = 1
+ran_ue_id = 1
+DRB.PdcpSduVolumeDL = 0 [kb]
+DRB.PdcpSduVolumeUL = 0 [kb]
+DRB.RlcSduDelayDl = 0.00 [μs]
+DRB.UEThpDl = 0.00 [kbps]
+DRB.UEThpUl = 0.00 [kbps]
+RRU.PrbTotDl = 0 [PRBs]
+RRU.PrbTotUl = 780 [PRBs]
+UE ID type = gNB, amf_ue_ngap_id = 2
+ran_ue_id = 2
+DRB.PdcpSduVolumeDL = 46500 [kb]
+DRB.PdcpSduVolumeUL = 285 [kb]
+DRB.RlcSduDelayDl = 80022.69 [μs]
+DRB.UEThpDl = 45931.00 [kbps]
+DRB.UEThpUl = 323.77 [kbps]
+RRU.PrbTotDl = 65044 [PRBs]
+RRU.PrbTotUl = 2337 [PRBs]
+
+      3 KPM ind_msg latency = 1722039111145284 [μs]
+UE ID type = gNB, amf_ue_ngap_id = 1
+ran_ue_id = 1
+DRB.PdcpSduVolumeDL = 0 [kb]
+DRB.PdcpSduVolumeUL = 0 [kb]
+DRB.RlcSduDelayDl = 0.00 [μs]
+DRB.UEThpDl = 0.00 [kbps]
+DRB.UEThpUl = 0.00 [kbps]
+RRU.PrbTotDl = 5 [PRBs]
+RRU.PrbTotUl = 765 [PRBs]
+UE ID type = gNB, amf_ue_ngap_id = 2
+ran_ue_id = 2
+DRB.PdcpSduVolumeDL = 43320 [kb]
+DRB.PdcpSduVolumeUL = 235 [kb]
+DRB.RlcSduDelayDl = 86352.68 [μs]
+DRB.UEThpDl = 44828.03 [kbps]
+DRB.UEThpUl = 266.97 [kbps]
+RRU.PrbTotDl = 63449 [PRBs]
+RRU.PrbTotUl = 1918 [PRBs]
+
+      4 KPM ind_msg latency = 1722039112144263 [μs]
+UE ID type = gNB, amf_ue_ngap_id = 1
+ran_ue_id = 1
+DRB.PdcpSduVolumeDL = 0 [kb]
+DRB.PdcpSduVolumeUL = 0 [kb]
+DRB.RlcSduDelayDl = 0.00 [μs]
+DRB.UEThpDl = 0.00 [kbps]
+DRB.UEThpUl = 0.00 [kbps]
+RRU.PrbTotDl = 0 [PRBs]
+RRU.PrbTotUl = 755 [PRBs]
+UE ID type = gNB, amf_ue_ngap_id = 2
+ran_ue_id = 2
+DRB.PdcpSduVolumeDL = 44244 [kb]
+DRB.PdcpSduVolumeUL = 211 [kb]
+DRB.RlcSduDelayDl = 62815.94 [μs]
+DRB.UEThpDl = 43456.59 [kbps]
+DRB.UEThpUl = 242.19 [kbps]
+RRU.PrbTotDl = 61457 [PRBs]
+RRU.PrbTotUl = 1889 [PRBs]
+
+      5 KPM ind_msg latency = 1722039113147835 [μs]
+UE ID type = gNB, amf_ue_ngap_id = 1
+ran_ue_id = 1
+DRB.PdcpSduVolumeDL = 0 [kb]
+DRB.PdcpSduVolumeUL = 0 [kb]
+DRB.RlcSduDelayDl = 0.00 [μs]
+DRB.UEThpDl = 0.00 [kbps]
+DRB.UEThpUl = 0.00 [kbps]
+RRU.PrbTotDl = 5 [PRBs]
+RRU.PrbTotUl = 790 [PRBs]
+UE ID type = gNB, amf_ue_ngap_id = 2
+ran_ue_id = 2
+DRB.PdcpSduVolumeDL = 45912 [kb]
+DRB.PdcpSduVolumeUL = 160 [kb]
+DRB.RlcSduDelayDl = 75057.42 [μs]
+DRB.UEThpDl = 46482.85 [kbps]
+DRB.UEThpUl = 182.82 [kbps]
+RRU.PrbTotDl = 65808 [PRBs]
+RRU.PrbTotUl = 1597 [PRBs]
+
+      6 KPM ind_msg latency = 1722039114136152 [μs]
+UE ID type = gNB, amf_ue_ngap_id = 1
+ran_ue_id = 1
+DRB.PdcpSduVolumeDL = 0 [kb]
+DRB.PdcpSduVolumeUL = 0 [kb]
+DRB.RlcSduDelayDl = 0.00 [μs]
+DRB.UEThpDl = 0.00 [kbps]
+DRB.UEThpUl = 0.00 [kbps]
+RRU.PrbTotDl = 5 [PRBs]
+RRU.PrbTotUl = 770 [PRBs]
+UE ID type = gNB, amf_ue_ngap_id = 2
+ran_ue_id = 2
+DRB.PdcpSduVolumeDL = 45456 [kb]
+DRB.PdcpSduVolumeUL = 168 [kb]
+DRB.RlcSduDelayDl = 80455.98 [μs]
+DRB.UEThpDl = 45257.18 [kbps]
+DRB.UEThpUl = 192.12 [kbps]
+RRU.PrbTotDl = 64058 [PRBs]
+RRU.PrbTotUl = 1577 [PRBs]
+
+      7 KPM ind_msg latency = 1722039115140956 [μs]
+UE ID type = gNB, amf_ue_ngap_id = 1
+ran_ue_id = 1
+DRB.PdcpSduVolumeDL = 0 [kb]
+DRB.PdcpSduVolumeUL = 0 [kb]
+DRB.RlcSduDelayDl = 0.00 [μs]
+DRB.UEThpDl = 0.00 [kbps]
+DRB.UEThpUl = 0.00 [kbps]
+RRU.PrbTotDl = 0 [PRBs]
+RRU.PrbTotUl = 775 [PRBs]
+UE ID type = gNB, amf_ue_ngap_id = 2
+ran_ue_id = 2
+DRB.PdcpSduVolumeDL = 43476 [kb]
+DRB.PdcpSduVolumeUL = 200 [kb]
+DRB.RlcSduDelayDl = 57595.12 [μs]
+DRB.UEThpDl = 45364.99 [kbps]
+DRB.UEThpUl = 227.04 [kbps]
+RRU.PrbTotDl = 64196 [PRBs]
+RRU.PrbTotUl = 1892 [PRBs]
+
+      8 KPM ind_msg latency = 1722039116139783 [μs]
+UE ID type = gNB, amf_ue_ngap_id = 1
+ran_ue_id = 1
+DRB.PdcpSduVolumeDL = 0 [kb]
+DRB.PdcpSduVolumeUL = 0 [kb]
+DRB.RlcSduDelayDl = 0.00 [μs]
+DRB.UEThpDl = 0.00 [kbps]
+DRB.UEThpUl = 0.00 [kbps]
+RRU.PrbTotDl = 0 [PRBs]
+RRU.PrbTotUl = 560 [PRBs]
+UE ID type = gNB, amf_ue_ngap_id = 2
+ran_ue_id = 2
+DRB.PdcpSduVolumeDL = 33576 [kb]
+DRB.PdcpSduVolumeUL = 145 [kb]
+DRB.RlcSduDelayDl = 41515.46 [μs]
+DRB.UEThpDl = 33020.60 [kbps]
+DRB.UEThpUl = 167.72 [kbps]
+RRU.PrbTotDl = 46729 [PRBs]
+RRU.PrbTotUl = 1270 [PRBs]
+
+      9 KPM ind_msg latency = 1722039117138757 [μs]
+UE ID type = gNB, amf_ue_ngap_id = 1
+ran_ue_id = 1
+DRB.PdcpSduVolumeDL = 0 [kb]
+DRB.PdcpSduVolumeUL = 0 [kb]
+DRB.RlcSduDelayDl = 0.00 [μs]
+DRB.UEThpDl = 0.00 [kbps]
+DRB.UEThpUl = 0.00 [kbps]
+RRU.PrbTotDl = 5 [PRBs]
+RRU.PrbTotUl = 765 [PRBs]
+UE ID type = gNB, amf_ue_ngap_id = 2
+ran_ue_id = 2
+DRB.PdcpSduVolumeDL = 43896 [kb]
+DRB.PdcpSduVolumeUL = 201 [kb]
+DRB.RlcSduDelayDl = 68634.86 [μs]
+DRB.UEThpDl = 44974.30 [kbps]
+DRB.UEThpUl = 228.65 [kbps]
+RRU.PrbTotDl = 63634 [PRBs]
+RRU.PrbTotUl = 1890 [PRBs]
+[xApp]: E42 RIC_SUBSCRIPTION_DELETE_REQUEST tx RAN_FUNC_ID 2 RIC_REQ_ID 1 
+
+     10 KPM ind_msg latency = 1722039118143714 [μs]
+UE ID type = gNB, amf_ue_ngap_id = 1
+ran_ue_id = 1
+DRB.PdcpSduVolumeDL = 0 [kb]
+DRB.PdcpSduVolumeUL = 0 [kb]
+DRB.RlcSduDelayDl = 0.00 [μs]
+DRB.UEThpDl = 0.00 [kbps]
+DRB.UEThpUl = 0.00 [kbps]
+RRU.PrbTotDl = 0 [PRBs]
+RRU.PrbTotUl = 775 [PRBs]
+UE ID type = gNB, amf_ue_ngap_id = 2
+ran_ue_id = 2
+DRB.PdcpSduVolumeDL = 45708 [kb]
+DRB.PdcpSduVolumeUL = 124 [kb]
+DRB.RlcSduDelayDl = 31994.97 [μs]
+DRB.UEThpDl = 45227.98 [kbps]
+DRB.UEThpUl = 143.23 [kbps]
+RRU.PrbTotDl = 63955 [PRBs]
+RRU.PrbTotUl = 1272 [PRBs]
+[xApp]: E42 SUBSCRIPTION DELETE RESPONSE rx
+[xApp]: Sucessfully stopped 
+Test xApp run SUCCESSFULLY

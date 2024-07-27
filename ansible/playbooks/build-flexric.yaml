@@ -54,7 +54,7 @@
       register: build_dir
 
     - name: Build FlexRIC
-      shell: mkdir build && cd build && cmake .. && make -j8
+      shell: mkdir build && cd build && cmake .. && make -j8 && make install
       args:
         chdir: /home/{{ ansible_user }}/flexric
       when: not build_dir.stat.exists
