@@ -53,6 +53,7 @@ class NFQueue3(object):
             ue_value = int(match.group(1), 16)
             if ue_value == 2: #transformar em parâmetro
                 ue_ip = pkt_scapy.src
+                # target_delay é um número mágico
                 target_delay = 8 * 1500 / 1e6 #transformar em parâmetro
                 elapsed_time = current_time - last_packet_time.get(ue_ip, 0)
                 with packet_lock:
